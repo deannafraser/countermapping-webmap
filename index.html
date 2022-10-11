@@ -41,7 +41,7 @@ index.html
   	<div class="map-overlay top">
   	<div class="map-overlay-inner">
   	<h2>Public and Affordable Housing Flood Risk</h2>
-    <!-- INSERT TEXT HERE -->
+    Mapping Public and Affordable housing at risk of flood through data from Hurricane Sandy's Inundation Zone and New York City Housing Developments<!-- INSERT TEXT HERE -->
   	</div>
   	</div>
 
@@ -65,6 +65,25 @@ map.on('load',function(){
     'type':'fill',
     'source':'sandy_layer',
     'source-layer':'Sandy_Inundation_Zone_1-8y1d7v',
+    'paint':{
+      'fill-color':'#00158f',
+      'fill-opacity': 0.5
+    }
+  })
+});
+
+map.on('load',function(){
+  // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
+  map.addSource('NYCHA',{
+    'type':'vector',
+    'url': 'mapbox://dmf233.1j0jretp'
+  });
+  // add a new layer with your polygons
+  map.addLayer({
+    'id':'housing_development',
+    'type':'fill',
+    'source':'NYCHA',
+    'source-layer':'Map_of_NYCHA_Developments_1-5ytlwd',
     'paint':{
       'fill-color':'#00158f',
       'fill-opacity': 0.5
